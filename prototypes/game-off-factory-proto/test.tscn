@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c1x3c8ulsh2v5"]
+
+[ext_resource type="Script" uid="uid://8we1bxbwlsks" path="res://factory_manager.gd" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://bahwrsxqbk5ni" path="res://player.gd" id="2_6uqi0"]
+[ext_resource type="Texture2D" uid="uid://cp6sqb6owuk44" path="res://icon.svg" id="2_8uh7m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cmp2d"]
+size = Vector2(130.03162, 130.03174)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8o4v"]
+size = Vector2(130.03162, 101.58716)
+
+[node name="Node2D" type="Node2D" unique_id=634823787 node_paths=PackedStringArray("shift_label")]
+script = ExtResource("1_37kl0")
+shift_label = NodePath("ShiftLabel")
+
+[node name="ShiftLabel" type="Label" parent="." unique_id=558078243]
+offset_top = -2.0
+offset_right = 1124.0
+offset_bottom = 129.0
+theme_override_font_sizes/font_size = 77
+text = "DAY SHIFT"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=751835929]
+position = Vector2(454.00003, 521)
+scale = Vector2(0.4921875, 0.4921875)
+script = ExtResource("2_6uqi0")
+
+[node name="Icon" type="Sprite2D" parent="Player" unique_id=1297831806]
+texture = ExtResource("2_8uh7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=877715391]
+shape = SubResource("RectangleShape2D_cmp2d")
+
+[node name="GrabArea" type="Area2D" parent="Player" unique_id=1943852325]
+position = Vector2(0, -115.80957)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/GrabArea" unique_id=125579401]
+shape = SubResource("RectangleShape2D_r8o4v")
